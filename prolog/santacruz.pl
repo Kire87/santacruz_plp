@@ -1,3 +1,9 @@
+%! Definindo o predicado winning_eleven como dinâmico, assim permitindo com que termos possam ser adicionados e removidos.
+:- dynamic(winning_eleven/1).
+
+print('Hello World!\n').
+
+%! Adicionando os jogadores.
 player(michael).
 player(leo_fernandes).
 player(italo_melo).
@@ -22,6 +28,7 @@ player(italo_silva).
 player(maranhao).
 player(dayvid).
 
+%! Numerando os jogadores.
 number(1, michael).
 number(2, leo_fernandes).
 number(3, italo_melo).
@@ -46,6 +53,7 @@ number(21, italo_silva).
 number(22, maranhao).
 number(23, dayvid).
 
+%!Atribuindo os jogadores as suas respectivas posições.
 goalkeeper(1).
 goalkeeper(12).
 
@@ -78,3 +86,20 @@ left_winger(18).
 center_forward(9).
 center_forward(19).
 center_forward(20).
+
+
+
+
+
+%! Montando o time titular que jogou contra o Campinense.
+winning_eleven(1).
+winning_eleven(2).
+winning_eleven(3).
+winning_eleven(4).
+winning_eleven(6).
+winning_eleven(5).
+winning_eleven(8).
+winning_eleven(10).
+winning_eleven(7).
+winning_eleven(11).
+winning_eleven(9).
