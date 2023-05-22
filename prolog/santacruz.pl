@@ -45,3 +45,36 @@ number(20, marcelinho).
 number(21, italo_silva).
 number(22, maranhao).
 number(23, dayvid).
+
+goalkeeper(1).
+goalkeeper(12).
+
+center-back(3).
+center-back(4).
+center-back(14).
+
+right-back(2).
+right-back(13).
+
+left-back(6).
+left-back(16).
+left-back(21).
+
+center_midfielder(17).
+
+defensive_midfielder(5).
+defensive_midfielder(8).
+defensive_midfielder(15).
+
+attacking_midfielder(11).
+attacking_midfielder(23).
+
+right_winger(22).
+
+left_winger(7).
+left_winger(10).
+left_winger(18).
+
+center_forward(9).
+center_forward(19).
+center_forward(20).
