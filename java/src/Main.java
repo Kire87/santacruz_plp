@@ -1,4 +1,36 @@
+import java.util.Scanner;
+
 public class Main {
+	public static void substitution(Player[] player, Player[] winning_eleven, int n1, int n2) {
+		for(int i = 0; i < 11; i++) {
+			if(winning_eleven[i].getNumber() == n1) {
+				System.out.println("Sai " + winning_eleven[i].getName());
+					for(int j = 0; j < player.length; j++) {
+						if(player[j].getNumber() == n2) {
+							winning_eleven[i] = player[j];
+							System.out.println("Entra " + winning_eleven[i].getName());
+						}
+				}
+			}
+		}
+
+		//return winning_eleven;
+	}
+
+	public static void playerInfo(Player[] player, int n) {
+		for(Player pl : player) {
+			if(pl.getNumber() == n) {
+				System.out.println("Número: " + pl.getNumber() + "\nNome: " + pl.getName() + "\nPosição principal: " + pl.getPosition());
+			}
+		}
+	}
+
+	public static void showTeam(Player[] winning_eleven) {
+		for(Player we : winning_eleven) {
+			System.out.println(we.getNumber() + ". " + we.getName());
+		}
+	}
+
 	public static void main(String[] args) {
 		Player[] player = new Player[23];
 
@@ -26,8 +58,85 @@ public class Main {
 		player[21] = new Player("Maranhão", 22, "Ponta Direita", new String[]{"Ponta Esquerda", "Meia Ofensivo"});
 		player[22] = new Player("Dayvid", 23, "Meia Ofensivo", new String[]{"Ponta Direita", "Ponta Esquerda"});
 
+		System.out.println("Jogadores: ");
 		for (Player pl : player) {
-			System.out.println(pl.getName());
+			System.out.println(pl.getNumber() + ". " + pl.getName());
+		}
+
+		Player[] winning_eleven = new Player[11];
+
+		winning_eleven[0] = player[0];
+		winning_eleven[1] = player[1];
+		winning_eleven[2] = player[2];
+		winning_eleven[3] = player[3];
+		winning_eleven[4] = player[5];
+		winning_eleven[5] = player[4];
+		winning_eleven[6] = player[7];
+		winning_eleven[7] = player[9];
+		winning_eleven[8] = player[6];
+		winning_eleven[9] = player[10];
+		winning_eleven[10] = player[8];
+
+		System.out.println();
+
+		System.out.println("Titulares: ");
+		for(Player we : winning_eleven) {
+			System.out.println(we.getNumber() + ". " + we.getName());
+		}
+
+		System.out.println();
+
+		Scanner sc = new Scanner(System.in);
+		int opt;
+		while(true) {
+			System.out.println("1 - Substituição\n2 - Informações de jogador\n3 - Mostrar o time\n4 - Fechar o programa");
+			opt = sc.nextInt();
+
+			int n1, n2;
+			if(opt == 1) {
+				System.out.println();
+
+				System.out.println("Insira o número do jogador que irá sair");
+				n1 = sc.nextInt();
+
+				System.out.println("Insira o número do jogador que irá entrar");
+				n2 = sc.nextInt();
+
+				System.out.println();
+
+				//winning_eleven = substitution(player, winning_eleven, n1, n2);
+				substitution(player, winning_eleven, n1, n2);
+
+				System.out.println();
+			}
+
+			if(opt == 2) {
+				System.out.println();
+
+				System.out.println("Insira o número do jogador");
+				n1 = sc.nextInt();
+
+				System.out.println();
+
+				playerInfo(player, n1);
+
+				System.out.println();
+			}
+
+			if(opt == 3) {
+				System.out.println();
+
+				showTeam(winning_eleven);
+
+				System.out.println();
+			}
+
+			if(opt == 4) {
+				System.out.println();
+
+				System.out.println("Encerrando...");
+				break;
+			}
 		}
 	}
 }
