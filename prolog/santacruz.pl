@@ -87,6 +87,30 @@ center_forward(9).
 center_forward(19).
 center_forward(20).
 
+position(1, goalkeeper).
+position(2, right-back).
+position(3, center-back).
+position(4, center-back).
+position(5, defensive_midfielder).
+position(6, left-back).
+position(7, left_winger).
+position(8, defensive_midfielder).
+position(9, center_forward).
+position(10, left_winger).
+position(11, attacking_midfielder).
+position(12, goalkeeper).
+position(13, right-back).
+position(14, center-back).
+position(15, defensive_midfielder).
+position(16, left-back).
+position(17, center_midfielder).
+position(18, left_winger).
+position(19, center_forward).
+position(20, center_forward).
+position(21, left-back).
+position(22, right_winger).
+position(23, attacking_midfielder).
+
 
 
 
