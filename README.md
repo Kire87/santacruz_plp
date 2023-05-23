@@ -2,6 +2,7 @@
 Santa Cruz Futebol Clube
 
 ## Comandos Prolog
+
 ###Substituição
 1. Remover jogador
 ```retract(winning_eleven(numero)).```
@@ -16,8 +17,8 @@ Santa Cruz Futebol Clube
 2. Mostrar posição
 ```position(numero, X).```
 
-3. Mostrar time
+###Mostrar time
 ```winning_eleven(X).```
 
-4. Fechar programa
+###Fechar programa
 ```halt.```
