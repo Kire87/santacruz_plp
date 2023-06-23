@@ -1,2 +1,4 @@
 # rust binaries
-/rust/*[^.rs]
+rust/*
+!rust/*.rs
+!rust/*.md
