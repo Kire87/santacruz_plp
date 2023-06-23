@@ -1,7 +1,7 @@
 program santinha;
 
 const
-  MaxPlayers = 23; 
+  MaxPlayers = 23;
 
 type
   Player = record
@@ -97,6 +97,35 @@ begin
   end;
 end;
 
+procedure ShowAvailableSubstitutes(const players: array of Player; const winningEleven: array of Player);
+var
+  i, j: Integer;
+  playerFound: Boolean;
+begin
+  writeln('Jogadores Disponíveis no Banco:');
+  for i := 0 to Length(players) - 1 do
+  begin
+    playerFound := False;
+
+    // Verifica se o jogador já está escalado no time titular
+    for j := 0 to Length(winningEleven) - 1 do
+    begin
+      if players[i].number = winningEleven[j].number then
+      begin
+        playerFound := True;
+        Break;
+      end;
+    end;
+
+    // Se o jogador não está no time titular, exibe suas informações
+    if not playerFound then
+    begin
+      writeln('Nome: ', players[i].name);
+      writeln('Número: ', players[i].number);
+    end;
+  end;
+end;
+
 
 procedure SubstitutePlayer(const players: array of Player; var winningEleven: array of Player);
 var
@@ -154,9 +183,36 @@ begin
   writeln('Substituição realizada com sucesso!');
 end;
 
+procedure GetPlayerData(const playerName: string; const players: array of Player);
+var
+  i: Integer;
+  playerFound: Boolean;
+begin
+  playerFound := False;
+
+  for i := 0 to Length(players) - 1 do
+  begin
+    if players[i].name = playerName then
+    begin
+      writeln('Dados do jogador "', playerName, '":');
+      writeln('Nome: ', players[i].name);
+      writeln('Número: ', players[i].number);
+      writeln('Posição Principal: ', players[i].position_main);
+      writeln('Ano de Nascimento: ', players[i].birthyear);
+      playerFound := True;
+      Break;
+    end;
+  end;
+
+  if not playerFound then
+    writeln('Jogador "', playerName, '" não encontrado.');
+end;
+
+
 var
   winningEleven: array[0..10] of Player;
   i: Integer;
+  playerName: string;
 
 begin
   playerCount := 0;
@@ -201,7 +257,9 @@ begin
 
     writeln('Menu de Opções:');
     writeln('1. Visualizar time atual');
-    writeln('2. Realizar substituição');
+    writeln('2. Visualizar banco de reservas');
+    writeln('3. Realizar substituição');
+    writeln('4. Obter dados de um jogador');
     writeln('100. Encerrar programa');
     writeln();
     writeln('Digite o número correspondente à opção desejada:');
@@ -216,7 +274,19 @@ begin
 
       2:
       begin
+        ShowAvailableSubstitutes(players, winningEleven);
+      end;
+
+      3:
+      begin
         SubstitutePlayer(players, winningEleven);
+      end;
+
+      4:
+      begin
+        writeln('Digite o nome do jogador para obter seus dados:');
+        Readln(playerName);
+        GetPlayerData(playerName, players);
       end;
 
       100:
