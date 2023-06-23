@@ -46,20 +46,19 @@ procedure CreateWinningEleven(const players: array of Player; var winningEleven:
 var
   playersLength: Integer;
   i, j, k, n: Integer;
-  playerFound: Boolean; // Variável para verificar se o jogador já foi escalado
+  playerFound: Boolean;
 begin
   playersLength := Length(players);
   writeln('Insira os números dos 11 titulares escalados: ');
   for i := 0 to 10 do
   begin
     repeat
-      playerFound := False; // Define como falso inicialmente
+      playerFound := False;
       Readln(n);
       for j := 0 to playersLength - 1 do
       begin
         if (n = players[j].number) then
         begin
-          // Verifica se o jogador já foi escalado
           for k := 0 to i - 1 do
           begin
             if (winningEleven[k].number = n) then
@@ -69,8 +68,6 @@ begin
               Break;
             end;
           end;
-
-          // Se o jogador não foi escalado, adiciona ao time
           if (not playerFound) then
           begin
             winningEleven[i] := players[j];
@@ -107,7 +104,6 @@ begin
   begin
     playerFound := False;
 
-    // Verifica se o jogador já está escalado no time titular
     for j := 0 to Length(winningEleven) - 1 do
     begin
       if players[i].number = winningEleven[j].number then
@@ -116,8 +112,6 @@ begin
         Break;
       end;
     end;
-
-    // Se o jogador não está no time titular, exibe suas informações
     if not playerFound then
     begin
       writeln('Nome: ', players[i].name);
@@ -139,7 +133,6 @@ begin
   writeln('Digite o nome do jogador que deseja substituir: ');
   Readln(currentPlayer.name);
 
-  // Verifica se o jogador atual está presente no time
   currentPlayerIndex := -1;
   for i := 0 to Length(winningEleven) - 1 do
   begin
@@ -160,7 +153,6 @@ begin
   writeln('Digite o nome do jogador que deseja que entre no time: ');
   Readln(newPlayerName);
 
-  // Verifica se o novo jogador está disponível
   playerFound := False;
   for i := 0 to Length(players) - 1 do
   begin
@@ -178,7 +170,6 @@ begin
     Exit;
   end;
 
-  // Realiza a substituição do jogador
   winningEleven[currentPlayerIndex] := newPlayer;
   writeln('Substituição realizada com sucesso!');
 end;
