@@ -21,7 +21,7 @@ Isso irá gerar um executável com o nome do arquivo sem a extensão .pas.
 
 4. Por fim, execute o programa compilado usando o comando:
 
-  `./nome_do_arquivo`
+  `./santinha`
 
 Agora você poderá ver a saída do programa.
 
