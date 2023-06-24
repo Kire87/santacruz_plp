@@ -15,7 +15,7 @@ Para outras distribuições Linux, consulte a documentação apropriada ou o sit
 
 3. Execute o seguinte comando no terminal para compilar o código:
 
-  `fpc nome_do_arquivo.pas`
+  `fpc santinha.pas`
 
 Isso irá gerar um executável com o nome do arquivo sem a extensão .pas.
 
