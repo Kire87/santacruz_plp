@@ -1,7 +1,8 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Eta reduce" #-}
 import Control.Monad (when)
-import Data.List (find)
+import Data.List ( find, intercalate )
 import Data.Maybe (fromMaybe)
-import Data.List (intercalate)
 import Data.IORef (IORef, newIORef, readIORef, writeIORef)
 
 data Player = Player
