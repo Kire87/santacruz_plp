@@ -1,0 +1,4 @@
+# rust binaries
+rust/*
+!rust/*.rs
+!rust/*.md
